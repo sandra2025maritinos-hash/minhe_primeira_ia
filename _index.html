@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Avatar LIBRAS</title>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <input type="text" id="textInput" placeholder="Digite o texto em português">
+  <button id="generateBtn">Gerar Vídeo</button>
+  
+  <script type="module">
+    import { generateLibrasVideo } from './_src_api_videoGenerator.js';
+    
+    document.getElementById('generateBtn').addEventListener('click', async () => {
+      const text = document.getElementById('textInput').value;
+      const video = await generateLibrasVideo(text, './models/avatar.glb');
+      console.log('Vídeo criado:', video);
+    });
+  </script>
+</body>
+</html>
